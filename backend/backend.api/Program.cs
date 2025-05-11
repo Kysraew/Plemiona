@@ -1,9 +1,19 @@
+using backend.api.DbInfrastructure;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddDbContext<StoreDbContext>(opts => {
+    opts.UseSqlServer(
+        builder.Configuration["ConnectionStrings:PlemionaDbConnection"]);
+});
+
+builder.Services.AddScoped<IPlemionaRepository, EFPlemionaRepository>();
 
 var app = builder.Build();
 
