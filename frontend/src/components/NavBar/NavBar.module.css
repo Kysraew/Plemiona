@@ -1,0 +1,8 @@
+.navbar {
+  background-color: green;
+}
+
+.navbar li {
+  display: inline;
+  margin: 5px;
+}

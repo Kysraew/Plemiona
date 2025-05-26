@@ -1,0 +1,17 @@
+.townMapContainer {
+}
+
+.backgroundImage {
+  z-index: 1;
+  position: absolute;
+
+  width: 100%;
+  height: auto;
+}
+
+.topImage {
+  z-index: 2;
+  position: absolute;
+  width: 100%;
+  height: auto;
+}
