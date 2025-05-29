@@ -3,6 +3,9 @@ import styles from "./TownMap.module.css";
 import backgroundTown from "/BackgroundTown.png";
 import wall from "/Wall.png";
 
+
+
+
 const TownMap = () => {
   return (
     <div className={styles.townMapContainer}>

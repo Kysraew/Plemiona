@@ -1,8 +1,41 @@
 .navbar {
   background-color: green;
+  overflow: hidden;
+}
+
+.navbar ul {
+  margin: auto;
+  list-style: none;
+  display: flex;
+  justify-content: center;
 }
 
 .navbar li {
-  display: inline;
   margin: 5px;
+  float: left;
+}
+
+.link {
+  display: inline-block;
+
+  font-size: 25px;
+  text-decoration: none;
+  color: black;
+  padding: 10px;
+}
+
+.link:hover {
+  background-color: rgb(2, 90, 2);
+}
+.linkActive:hover {
+  background-color: rgb(2, 90, 2);
+}
+
+.linkActive {
+  display: block;
+  font-weight: bold;
+  font-size: 25px;
+  text-decoration: none;
+  color: black;
+  padding: 10px;
 }

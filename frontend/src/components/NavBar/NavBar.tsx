@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import styles from "./NavBar.module.css";
 
 const NavBar = () => {
@@ -7,13 +7,34 @@ const NavBar = () => {
     <nav className={styles.navbar}>
       <ul>
         <li>
-          <Link to="/town">Town</Link>
+          <NavLink
+            className={({ isActive }) =>
+              isActive ? styles.linkActive : styles.link
+            }
+            to="/town"
+          >
+            Town
+          </NavLink>
         </li>
         <li>
-          <Link to="/map">Map</Link>
+          <NavLink
+            className={({ isActive }) =>
+              isActive ? styles.linkActive : styles.link
+            }
+            to="/map"
+          >
+            Map
+          </NavLink>
         </li>
         <li>
-          <Link to="/alliance">Alliance</Link>
+          <NavLink
+            className={({ isActive }) =>
+              isActive ? styles.linkActive : styles.link
+            }
+            to="/alliance"
+          >
+            Alliance
+          </NavLink>
         </li>
       </ul>
     </nav>

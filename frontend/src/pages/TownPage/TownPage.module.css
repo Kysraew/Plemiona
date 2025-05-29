@@ -1,17 +1,15 @@
-.townMapContainer {
+.mainTownView {
+  display: flex;
 }
 
-.backgroundImage {
-  z-index: 1;
-  position: absolute;
-
-  width: 100%;
-  height: auto;
+.townMap {
+  width: 70%;
 }
 
-.topImage {
-  z-index: 2;
-  position: absolute;
-  width: 100%;
-  height: auto;
+.townPanel {
+  width: 30%;
+}
+
+.townHeader {
+  text-align: center;
 }
