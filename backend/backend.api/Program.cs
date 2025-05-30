@@ -8,12 +8,13 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddDbContext<StoreDbContext>(opts => {
-    opts.UseSqlServer(
+builder.Services.AddDbContext<PlemionaDbContext>(opts =>
+{
+    opts.UseNpgsql(
         builder.Configuration["ConnectionStrings:PlemionaDbConnection"]);
 });
 
-builder.Services.AddScoped<IPlemionaRepository, EFPlemionaRepository>();
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
 var app = builder.Build();
 
@@ -23,6 +24,9 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+
+SeedData.SeedDatabase(app);
 
 app.Run();
 

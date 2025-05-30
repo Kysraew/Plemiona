@@ -1,0 +1,21 @@
+using backend.core.Models;
+using Microsoft.AspNetCore.SignalR;
+using Microsoft.EntityFrameworkCore;
+
+namespace backend.api.DbInfrastructure.Repositories
+{
+  public class Repository<T> : IRepository<T> where T : class
+  {
+    protected PlemionaDbContext _dbContext;
+    protected readonly DbSet<T> _dbSet;
+
+    public Repository(PlemionaDbContext dbContext)
+    {
+      _dbContext = dbContext;
+      _dbSet = dbContext.Set<T>();
+    }
+
+    public virtual async Task<IEnumerable<T>> GetAllAsync() => await _dbSet.ToListAsync();
+
+  }
+}

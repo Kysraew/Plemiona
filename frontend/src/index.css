@@ -9,3 +9,22 @@ h1 {
   border: solid;
   box-shadow: 5px 5px 10px 2px black;
 }
+
+h2,
+h3 {
+  text-align: center;
+}
+
+p {
+  text-align: center;
+  font-size: larger;
+}
+
+button {
+  display: block;
+  margin: auto;
+  padding: 10px 5px;
+  font-size: larger;
+  background-color: bisque;
+  box-shadow: 2px 2px 5px black;
+}
