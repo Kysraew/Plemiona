@@ -15,7 +15,15 @@ namespace backend.api.DbInfrastructure.Repositories
       _dbSet = dbContext.Set<T>();
     }
 
-    public virtual async Task<IEnumerable<T>> GetAllAsync() => await _dbSet.ToListAsync();
+    public virtual IAsyncEnumerable<T> GetAllAsync()
+    {
+      return _dbSet.AsAsyncEnumerable();
+    }
 
+    public virtual async Task<T?> GetById(long Id)
+    {
+      return await _dbSet.FindAsync(Id);
+
+    }
   }
 }

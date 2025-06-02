@@ -5,7 +5,8 @@ namespace backend.api.DbInfrastructure.Repositories
 {
     public interface IRepository<T> where T : class
     {
-        public Task<IEnumerable<T>> GetAllAsync();
+        public IAsyncEnumerable<T> GetAllAsync();
+        public Task<T?> GetById(long Id);
 
     }
 }

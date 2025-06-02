@@ -1,3 +1,4 @@
+using System.Text.Json.Serialization;
 using backend.api.DbInfrastructure;
 using Microsoft.EntityFrameworkCore;
 
@@ -16,7 +17,12 @@ builder.Services.AddDbContext<PlemionaDbContext>(opts =>
 
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
+builder.Services.AddControllers().AddJsonOptions(x =>
+   x.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles);
+
 var app = builder.Build();
+
+app.MapControllers();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())

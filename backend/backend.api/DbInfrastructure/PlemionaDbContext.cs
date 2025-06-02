@@ -9,6 +9,10 @@ namespace backend.api.DbInfrastructure
         public PlemionaDbContext(DbContextOptions<PlemionaDbContext> options)
             : base(options) { }
 
-        public DbSet<Test> Tests => Set<Test>();
+        public DbSet<Town> Towns => Set<Town>();
+        public DbSet<Player> Players => Set<Player>();
+        public DbSet<Building> Buildings => Set<Building>();
+        public DbSet<BuildingInstance> BuildingInstances => Set<BuildingInstance>();
+        public DbSet<BuildingUpgrade> BuildingUpgrades => Set<BuildingUpgrade>();
     }
 }

@@ -1,6 +1,11 @@
 using backend.api.DbInfrastructure.Repositories;
+using backend.core.Models;
 
 public interface IUnitOfWork
 {
-  public IRepository<Task> Tasks { get; }
+  public IRepository<Player> Players { get; }
+  public ITownRepository Towns { get; }
+  public IRepository<Building> Buildings { get; }
+  public IRepository<BuildingInstance> BuildingInstances { get; }
+  public IRepository<BuildingUpgrade> BuildingUpgrades { get; }
 }
