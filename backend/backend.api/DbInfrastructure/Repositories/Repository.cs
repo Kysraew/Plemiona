@@ -23,7 +23,6 @@ namespace backend.api.DbInfrastructure.Repositories
     public virtual async Task<T?> GetById(long Id)
     {
       return await _dbSet.FindAsync(Id);
-
     }
   }
 }
