@@ -44,7 +44,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-SeedData.SeedDatabase(app);
+//SeedData.SeedDatabase(app);
 
 app.Run();
 

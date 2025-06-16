@@ -13,7 +13,12 @@ namespace backend.api.DbInfrastructure.Repositories
     }
     override public async Task<Town?> GetById(long Id)
     {
-      return await _dbSet.Where(t => t.TownId == Id).Include(t => t.Player).Include(t => t.BuildingInstances).FirstOrDefaultAsync();
+      return await _dbSet
+      .Where(t => t.TownId == Id)
+      .Include(t => t.Player)
+      .Include(t => t.BuildingInstances)
+      .ThenInclude(b => b.Building)
+      .FirstOrDefaultAsync();
     }
   }
 }

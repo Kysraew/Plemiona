@@ -15,7 +15,7 @@ namespace backend.api.DbInfrastructure
 
       if (context.Buildings.Count() == 0)
       {
-        context.Buildings.AddRange(new Building { Name = "Hall", Description = "Main palace where town council resides." });
+        context.Buildings.AddRange(new Building { Name = "Wall", Description = "Provied defence against enemies." });
       }
       context.SaveChanges();
 
