@@ -1,3 +1,4 @@
+import type { IBuilding } from "./IBuilding";
 import type { ITown } from "./ITown";
 
 

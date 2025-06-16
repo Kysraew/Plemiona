@@ -20,3 +20,17 @@
   height: 40vh;
   object-fit: cover;
 }
+
+.wall {
+  top: 40%;
+  left: 45%;
+  width: 200px;
+  height: 250px;
+  background-color: black;
+}
+
+.clickContainer {
+  position: absolute;
+  z-index: 3;
+  cursor: pointer;
+}

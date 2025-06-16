@@ -5,8 +5,8 @@ import TownPanel from "@/components/TownPanel/TownPanel";
 import { createContext, useContext, useEffect, useState } from "react";
 import type { ITown } from "@/interfaces/ITown";
 import { fetchTown } from "@/api/api";
-
-const townID = 1;
+import { MyTownContext } from "./TownContext";
+const townID = 0;
 
 const TownPage = () => {
   const [town, setTown] = useState<ITown | null>(null);
@@ -18,7 +18,7 @@ const TownPage = () => {
     fetchTown(townID).then((result) => {
       if (!ignore) {
         setTown(result);
-        console.log(result);
+        console.log("Result: ", result);
       }
     });
     return () => {
@@ -31,13 +31,16 @@ const TownPage = () => {
       <NavBar />
       <h2 className={styles.townHeader}>Town</h2>
       <div className={styles.mainTownView}>
-        <div className={styles.townMap}>
-          <TownMap />
-        </div>
-        <div className={styles.townPanel}>
-          <TownPanel />
-          <>{town}</>
-        </div>
+        <MyTownContext.Provider
+          value={{ town, selectedBuilding, setSelectedBuilding }}
+        >
+          <div className={styles.townMap}>
+            <TownMap />
+          </div>
+          <div className={styles.townPanel}>
+            <TownPanel />
+          </div>
+        </MyTownContext.Provider>
       </div>
     </div>
   );
