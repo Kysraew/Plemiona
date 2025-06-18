@@ -6,11 +6,13 @@ import { createContext, useContext, useEffect, useState } from "react";
 import type { ITown } from "@/interfaces/ITown";
 import { fetchTown } from "@/api/api";
 import { MyTownContext } from "./TownContext";
+import type { IBuildingInstance } from "@/interfaces/IBuildingInstance";
 const townID = 0;
 
 const TownPage = () => {
   const [town, setTown] = useState<ITown | null>(null);
-  const [selectedBuilding, setSelectedBuilding] = useState<string | null>(null);
+  const [selectedBuilding, setSelectedBuilding] =
+    useState<IBuildingInstance | null>(null);
 
   useEffect(() => {
     let ignore = false;
@@ -32,7 +34,11 @@ const TownPage = () => {
       <h2 className={styles.townHeader}>Town</h2>
       <div className={styles.mainTownView}>
         <MyTownContext.Provider
-          value={{ town, selectedBuilding, setSelectedBuilding }}
+          value={{
+            town,
+            selectedBuildingInstance: selectedBuilding,
+            setSelectedBuildingInstance: setSelectedBuilding,
+          }}
         >
           <div className={styles.townMap}>
             <TownMap />

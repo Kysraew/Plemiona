@@ -1,18 +1,39 @@
 import React from "react";
 import styles from "./BuildingContext.module.css";
+import { useTownContext } from "@/pages/TownPage/TownContext";
 
-interface Props {
-  buildingName: string;
-  buildingDescription: string;
-}
+const BuildingContext = () => {
+  const { town, selectedBuildingInstance } = useTownContext();
 
-const BuildingContext = ({ buildingName, buildingDescription }: Props) => {
+  if (town === null) {
+    return (
+      <div className={styles.panelContainer}>
+        <p className={styles.buildingDescriptionParagraph}>Can't load town</p>
+      </div>
+    );
+  }
+
+  if (selectedBuildingInstance === null) {
+    return (
+      <div className={styles.panelContainer}>
+        <p className={styles.buildingDescriptionParagraph}>
+          Select building to see info
+        </p>
+      </div>
+    );
+  }
   return (
     <>
-      <h3 className={styles.buildingNameHeader}>{buildingName}</h3>
-      <p className={styles.buildingDescriptionParagraph}>
-        {buildingDescription}
-      </p>
+      <h3 className={styles.buildingNameHeader}>
+        {selectedBuildingInstance?.building.name}
+      </h3>
+      <div className={styles.buildingDescriptionParagraph}>
+        <p>{selectedBuildingInstance?.building.description}</p>
+        <p>
+          <b>Current level:</b> {selectedBuildingInstance?.level}
+        </p>
+      </div>
+
       <button className={styles.upgradeButton}>Upgrade</button>
     </>
   );
