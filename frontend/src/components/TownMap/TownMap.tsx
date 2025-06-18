@@ -9,7 +9,8 @@ const buildingImages: { [key: string]: string } = {
 };
 
 const TownMap = () => {
-  const { town, selectedBuilding, setSelectedBuilding } = useTownContext();
+  const { town, setSelectedBuildingInstance: setSelectedBuilding } =
+    useTownContext();
 
   return (
     <div className={styles.townMapContainer}>
@@ -29,7 +30,7 @@ const TownMap = () => {
             className={`${styles.clickContainer} ${
               styles[instance.building.name.toLowerCase()]
             }`}
-            onClick={() => setSelectedBuilding(instance.building.name)}
+            onClick={() => setSelectedBuilding(instance)}
             title={instance.building.name}
           />
         </>
