@@ -7,6 +7,7 @@ import type { ITown } from "@/interfaces/ITown";
 import { fetchTown } from "@/api/api";
 import { MyTownContext } from "./TownContext";
 import type { IBuildingInstance } from "@/interfaces/IBuildingInstance";
+import TownResources from "@/components/TownResources/TownResources";
 const townID = 0;
 
 const TownPage = () => {
@@ -31,23 +32,23 @@ const TownPage = () => {
   return (
     <div>
       <NavBar />
-      <h2 className={styles.townHeader}>Town</h2>
-      <div className={styles.mainTownView}>
-        <MyTownContext.Provider
-          value={{
-            town,
-            selectedBuildingInstance: selectedBuilding,
-            setSelectedBuildingInstance: setSelectedBuilding,
-          }}
-        >
+      <MyTownContext.Provider
+        value={{
+          town,
+          selectedBuildingInstance: selectedBuilding,
+          setSelectedBuildingInstance: setSelectedBuilding,
+        }}
+      >
+        <TownResources />
+        <div className={styles.mainTownView}>
           <div className={styles.townMap}>
             <TownMap />
           </div>
           <div className={styles.townPanel}>
             <TownPanel />
           </div>
-        </MyTownContext.Provider>
-      </div>
+        </div>
+      </MyTownContext.Provider>
     </div>
   );
 };
