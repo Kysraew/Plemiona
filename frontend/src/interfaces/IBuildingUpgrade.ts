@@ -8,4 +8,5 @@ export interface IBuildingUpgrade {
   stone: number;
   iron: number;
   populationNeeded: number;
+  grainPerEmployee: number;
 }

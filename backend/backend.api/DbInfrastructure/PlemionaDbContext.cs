@@ -34,13 +34,14 @@ namespace backend.api.DbInfrastructure
                     Iron = 50,
                     Stone = 100,
                     Wood = 160,
-                    PopulationNeeded = 50
+                    PopulationNeeded = 50,
+                    GrainPerEmployee = 3
                 }
             );
 
             modelBuilder.Entity<Player>().HasData(
-                new Player { PlayerId = 1, Name = "Henry", Gold = 100, Stone = 200, Wood = 400, Iron = 300 },
-                new Player { PlayerId = 2, Name = "John", Gold = 100, Stone = 200, Wood = 400, Iron = 250 }
+                new Player { PlayerId = 1, Name = "Henry", Grain = 100, Gold = 100, Stone = 200, Wood = 400, Iron = 300 },
+                new Player { PlayerId = 2, Name = "John", Grain = 100, Gold = 100, Stone = 200, Wood = 400, Iron = 250 }
             );
 
             modelBuilder.Entity<Town>().HasData(

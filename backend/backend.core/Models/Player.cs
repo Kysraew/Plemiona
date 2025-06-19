@@ -10,6 +10,7 @@ namespace backend.core.Models
         [Required]
         [MaxLength(50)]
         public string Name { get; set; } = null!;
+        public int Grain { get; set; }
         public int Gold { get; set; }
         public int Stone { get; set; }
         public int Wood { get; set; }

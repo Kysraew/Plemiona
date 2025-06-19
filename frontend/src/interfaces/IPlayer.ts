@@ -3,7 +3,8 @@ import type { ITown } from "./ITown";
 export interface IPlayer {
   playerId: number;
   name: string;
-  golde: number;
+  grain: number;
+  gold: number;
   stone: number;
   wood: number;
   iron: number;

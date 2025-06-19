@@ -15,5 +15,6 @@ namespace backend.core.Models
     public int Stone { get; set; }
     public int Iron { get; set; }
     public int PopulationNeeded { get; set; }
+    public int GrainPerEmployee { get; set; }
   }
 }
