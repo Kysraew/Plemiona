@@ -8,7 +8,7 @@ import { fetchTown } from "@/api/api";
 import { MyTownContext } from "./TownContext";
 import type { IBuildingInstance } from "@/interfaces/IBuildingInstance";
 import TownResources from "@/components/TownResources/TownResources";
-const townID = 0;
+const townID = 1;
 
 const TownPage = () => {
   const [town, setTown] = useState<ITown | null>(null);
@@ -35,6 +35,7 @@ const TownPage = () => {
       <MyTownContext.Provider
         value={{
           town,
+          setTown,
           selectedBuildingInstance: selectedBuilding,
           setSelectedBuildingInstance: setSelectedBuilding,
         }}

@@ -9,7 +9,7 @@ public class UnitOfWork : IUnitOfWork
   private TownRepository _towns;
   private Repository<Building> _buildings;
   private Repository<BuildingInstance> _buildingInstances;
-  private Repository<BuildingUpgrade> _buildingUpgrades;
+  private BuildingUpgradeRepository _buildingUpgrades;
 
 
   public UnitOfWork(PlemionaDbContext dbContext)
@@ -19,7 +19,7 @@ public class UnitOfWork : IUnitOfWork
     _towns = new TownRepository(dbContext);
     _buildings = new Repository<Building>(dbContext);
     _buildingInstances = new Repository<BuildingInstance>(dbContext);
-    _buildingUpgrades = new Repository<BuildingUpgrade>(dbContext);
+    _buildingUpgrades = new BuildingUpgradeRepository(dbContext);
   }
 
   public IRepository<Player> Players => _players;
@@ -27,6 +27,11 @@ public class UnitOfWork : IUnitOfWork
 
   public IRepository<Building> Buildings => _buildings;
   public IRepository<BuildingInstance> BuildingInstances => _buildingInstances;
+  public IBuildingUpgradeRepository BuildingUpgrades => _buildingUpgrades;
 
-  public IRepository<BuildingUpgrade> BuildingUpgrades => _buildingUpgrades;
+  public async Task<int> CompleteAsync()
+  {
+    return await _dbContext.SaveChangesAsync();
+  }
+
 }

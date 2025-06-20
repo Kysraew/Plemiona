@@ -24,5 +24,11 @@ namespace backend.api.DbInfrastructure.Repositories
     {
       return await _dbSet.FindAsync(Id);
     }
+
+    public async Task Update(T t)
+    {
+      _dbSet.Update(t);
+      await _dbContext.SaveChangesAsync();
+    }
   }
 }

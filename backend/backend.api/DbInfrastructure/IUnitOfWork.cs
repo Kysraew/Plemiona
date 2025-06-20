@@ -7,5 +7,8 @@ public interface IUnitOfWork
   public ITownRepository Towns { get; }
   public IRepository<Building> Buildings { get; }
   public IRepository<BuildingInstance> BuildingInstances { get; }
-  public IRepository<BuildingUpgrade> BuildingUpgrades { get; }
+  public IBuildingUpgradeRepository BuildingUpgrades { get; }
+
+  public Task<int> CompleteAsync();
+
 }

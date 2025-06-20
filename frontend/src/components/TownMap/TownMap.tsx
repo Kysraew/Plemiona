@@ -32,7 +32,11 @@ const TownMap = () => {
             }`}
             onClick={() => setSelectedBuilding(instance)}
             title={instance.building.name}
-          />
+          >
+            <span>
+              {instance.building.name} Lev. {instance.level}
+            </span>
+          </div>
         </>
       ))}
     </div>

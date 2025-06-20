@@ -7,6 +7,7 @@ namespace backend.api.DbInfrastructure.Repositories
     {
         public IAsyncEnumerable<T> GetAllAsync();
         public Task<T?> GetById(long Id);
+        public Task Update(T t);
 
     }
 }
