@@ -13,3 +13,7 @@ Backend is written in C# ASP.NET and has a form of a REST API. Backend is connec
 #### Frontend
 
 Frontend is written in React with Vite and is a SPA. For style it uses simple css with modules
+
+#### Town View
+
+![alt text](https://github.com/Kysraew/Plemiona/demo_images/town_view_demo.png "Town View")
