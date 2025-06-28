@@ -16,4 +16,4 @@ Frontend is written in React with Vite and is a SPA. For style it uses simple cs
 
 #### Town View
 
-![alt text](https://github.com/Kysraew/Plemiona/demo_images/town_view_demo.png "Town View")
+![alt text](demo_images/town_view_demo.png "Town View")
