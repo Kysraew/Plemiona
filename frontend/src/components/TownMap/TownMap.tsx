@@ -1,11 +1,26 @@
 import React from "react";
 import styles from "./TownMap.module.css";
-import backgroundTownImage from "/buildingImages/BackgroundTown.png";
-import wallImage from "/buildingImages/Wall.png";
 import { useTownContext } from "@/pages/TownPage/TownContext";
 
+import backgroundImage from "/buildingImages/Background.png";
+import BaracsImage from "/buildingImages/Baracs.png";
+import FieldImage from "/buildingImages/Field.png";
+import ForgeImage from "/buildingImages/Forge.png";
+import MineImage from "/buildingImages/Mine.png";
+import SawmillImage from "/buildingImages/Sawmill.png";
+import StonepitImage from "/buildingImages/Stonepit.png";
+import TownHallImage from "/buildingImages/TownHall.png";
+import WallImage from "/buildingImages/Wall.png";
+
 const buildingImages: { [key: string]: string } = {
-  Wall: wallImage,
+  Baracs: BaracsImage,
+  Field: FieldImage,
+  Forge: ForgeImage,
+  Mine: MineImage,
+  Sawmill: SawmillImage,
+  Stonepit: StonepitImage,
+  Townhall: TownHallImage,
+  Wall: WallImage,
 };
 
 const TownMap = () => {
@@ -16,7 +31,7 @@ const TownMap = () => {
     <div className={styles.townMapContainer}>
       <img
         className={styles.backgroundImage}
-        src={backgroundTownImage}
+        src={backgroundImage}
         alt="backgroundTown"
       />
       {town?.buildingInstances.map((instance) => (
